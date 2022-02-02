@@ -339,7 +339,7 @@ segwit_encode:
 		if (data_len < 0)
 			errx(1, "Bad hex data");
 fprintf(stderr, "data_len: %jd\n", (intmax_t)data_len);
-		error = segwit_addr_encode(bech32, "bc", witver, data, data_len);
+		error = segwit_addr_encode(bech32, "grs", witver, data, data_len);
 		if (error != 1)
 			errx(1, "segwit_addr_encode() failed");
 
@@ -369,7 +369,7 @@ fprintf(stderr, "data_len: %jd\n", (intmax_t)data_len);
 	case MODE_SEGWIT_DECODE: {
 		int ver;
 
-		error = segwit_addr_decode(&ver, data, &data_len, "bc", *argv);
+		error = segwit_addr_decode(&ver, data, &data_len, "grs", *argv);
 		if (error != 1)
 			errx(1, "segwit_addr_decode() failed");
 

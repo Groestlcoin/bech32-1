@@ -21,7 +21,7 @@
 <div class="manual-text">
 <h1 class="Sh" title="Sh" id="NAME"><a class="selflink" href="#NAME">NAME</a></h1>
 <b class="Nm" title="Nm">bech32</b> &#x2014; <span class="Nd" title="Nd">Encode
-  and decode Bech32 strings and Bitcoin Segwit addresses</span>
+  and decode Bech32 strings and Groestlcoin Segwit addresses</span>
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="selflink" href="#SYNOPSIS">SYNOPSIS</a></h1>
 General-purpose encoding and decoding:
 <div class="Pp"></div>
@@ -52,8 +52,8 @@ General-purpose encoding and decoding:
       [<span class="Op"><b class="Fl" title="Fl">-u</b></span>]
       <var class="Ar" title="Ar">bech32string</var>
     <div class="Pp"></div>
-    For Bitcoin <b class="Sy" title="Sy">Bravo Charlie</b> addresses
-      (&#x201C;bc1&#x201D;):</td>
+    For Groestlcoin <b class="Sy" title="Sy">Bech32</b> addresses
+      (&#x201C;grs1&#x201D;):</td>
   </tr>
 </table>
 <div class="Pp"></div>
@@ -69,7 +69,7 @@ General-purpose encoding and decoding:
 <table class="Nm">
   <tr>
     <td><b class="Nm" title="Nm">bech32</b></td>
-    <td><b class="Fl" title="Fl">-S</b> <var class="Ar" title="Ar">bc1addr</var>
+    <td><b class="Fl" title="Fl">-S</b> <var class="Ar" title="Ar">grs1addr</var>
     <div class="Pp"></div>
     For .onion domains:</td>
   </tr>
@@ -93,7 +93,7 @@ General-purpose encoding and decoding:
 </table>
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="selflink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 The <b class="Nm" title="Nm">bech32</b> utility is a powerful general-purpose
-  tool for encoding and decoding of BIP 173 standard Bech32 strings and Bitcoin
+  tool for encoding and decoding of BIP 173 standard Bech32 strings and Groestlcoin
   Bech32 addresses.
 <div class="Pp"></div>
 Hexadecimal data may be input with or without a leading &#x201C;0x&#x201D;
@@ -110,10 +110,10 @@ It has the following modes, some of which overlap:
       &#x201C;0x&#x201D; prefix.</dd>
   <dt class="It-tag" style="margin-left: -23.40ex;"><a class="selflink" href="#s"><b class="Fl" title="Fl" id="s">-s</b></a>
     <var class="Ar" title="Ar">witver</var></dt>
-  <dd class="It-tag">Encode a Bitcoin Segwit address with witness version
+  <dd class="It-tag">Encode a Groestlcoin Segwit address with witness version
       <var class="Ar" title="Ar">witver</var>.</dd>
   <dt class="It-tag" style="margin-left: -23.40ex;"><a class="selflink" href="#S"><b class="Fl" title="Fl" id="S">-S</b></a></dt>
-  <dd class="It-tag">Decode a Bitcoin Segwit address. Output its witness version
+  <dd class="It-tag">Decode a Groestlcoin Segwit address. Output its witness version
       in <i class="Em" title="Em">decimal</i> (0&#x2013;16 inclusive), followed
       by a delimiting colon (&#x201C;:&#x201D;), followed by the address data in
       <i class="Em" title="Em">hexadecimal</i> with a &#x201C;0x&#x201D;
@@ -145,11 +145,11 @@ The <b class="Nm" title="Nm">bech32</b> utility exits&#x00A0;0 on success,
   and&#x00A0;&gt;0 if an error occurs.
 <h1 class="Sh" title="Sh" id="EXAMPLES"><a class="selflink" href="#EXAMPLES">EXAMPLES</a></h1>
 Extract the witness version and Hash160 from the
-  <b class="Nm" title="Nm">bech32</b> utility author's Bech32 tip address:
+  <b class="Nm" title="Nm">bech32</b> utility address:
 <div class="Pp"></div>
 <div class="D1"><code class="Li">bech32 -S
-  bc1qcash96s5jqppzsp8hy8swkggf7f6agex98an7h</code></div>
-<div class="D1"><code class="Li">0:0xc76172ea149002114027b90f0759084f93aea326</code></div>
+  grs1q0xez7a2j2fsvuqyxv3k9kdutv7gqt7cr4436c</code></div>
+<div class="D1"><code class="Li">0:0x79b22f75525260ce0086646c5b378b679005fb03</code></div>
 <div class="Pp"></div>
 Get a &#x201C;hello, world&#x201D; introduction to Bech32:
 <div class="Pp"></div>
@@ -164,7 +164,7 @@ Generate a &#x201C;burn address&#x201D; with a Hash160 of all zeroes, which
 <div class="Pp"></div>
 <div class="D1"><code class="Li">bech32 -s 0
   0x0000000000000000000000000000000000000000</code></div>
-<div class="D1"><code class="Li">bc1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq9e75rs</code></div>
+<div class="D1"><code class="Li">grs1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqcgz463</code></div>
 <div class="Pp"></div>
 Bech32-encode the address for Wikileaks, to add error-correcting codes:
 <div class="Pp"></div>
@@ -195,11 +195,6 @@ The <b class="Nm" title="Nm">bech32</b> utility conforms to:
       7686</a>.</li>
 </ul>
 <div class="Pp"></div>
-The term &#x201C;<b class="Sy" title="Sy">Bravo Charlie Address</b>&#x201D; and
-  the motto &#x201C;<b class="Sy" title="Sy">Bravo Charlie One means
-  money</b>&#x201D; are from a
-  <a class="Lk" title="Lk" href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-December/015477.html">proposal
-  by this author</a>.
 <h1 class="Sh" title="Sh" id="AUTHORS"><a class="selflink" href="#AUTHORS">AUTHORS</a></h1>
 The <b class="Nm" title="Nm">bech32</b> utility was written by
   <span class="An" title="An">nullius</span>
@@ -240,7 +235,7 @@ This is an early release, which should be considered alpha-quality software. It
 <table class="foot">
   <tr>
     <td class="foot-date">December 31, 2017</td>
-    <td class="foot-os">Bitcoin</td>
+    <td class="foot-os">Groestlcoin</td>
   </tr>
 </table>
 </body>

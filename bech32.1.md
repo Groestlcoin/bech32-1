@@ -2,7 +2,7 @@ BECH32(1) - General Commands Manual
 
 # NAME
 
-**bech32** - Encode and decode Bech32 strings and Bitcoin Segwit addresses
+**bech32** - Encode and decode Bech32 strings and groestlcoin Segwit addresses
 
 # SYNOPSIS
 
@@ -23,17 +23,17 @@ General-purpose encoding and decoding:
 \[**-u**]
 *bech32string*
 
-For Bitcoin
-**Bravo Charlie**
+For Groestlcoin
+**Bech32**
 addresses
-("bc1"):
+("grs1"):
 
 **bech32**
 **-s**&nbsp;*witver*
 *hexdata*  
 **bech32**
 **-S**
-*bc1addr*
+*grs1addr*
 
 For .onion domains:
 
@@ -49,7 +49,7 @@ For .onion domains:
 The
 **bech32**
 utility is a powerful general-purpose tool for encoding and decoding
-of BIP 173 standard Bech32 strings and Bitcoin Bech32 addresses.
+of BIP 173 standard Bech32 strings and Groestlcoin Bech32 addresses.
 
 Hexadecimal data may be input with or without a leading
 "0x"
@@ -79,12 +79,12 @@ It has the following modes, some of which overlap:
 
 **-s** *witver*
 
-> Encode a Bitcoin Segwit address with witness version
+> Encode a Groestlcoin Segwit address with witness version
 > *witver*.
 
 **-S**
 
-> Decode a Bitcoin Segwit address.
+> Decode a Groestlcoin Segwit address.
 > Output its witness version in
 > *decimal*
 > (0&#8211;16 inclusive),
@@ -136,12 +136,11 @@ The **bech32** utility exits&#160;0 on success, and&#160;&gt;0 if an error occur
 
 Extract the witness version and Hash160 from the
 **bech32**
-utility author
-'s Bech32 tip address:
+address:
 
-	bech32 -S bc1qcash96s5jqppzsp8hy8swkggf7f6agex98an7h
+	bech32 -S grs1q0xez7a2j2fsvuqyxv3k9kdutv7gqt7cr4436cs
 
-	0:0xc76172ea149002114027b90f0759084f93aea326
+	0:0x79b22f75525260ce0086646c5b378b679005fb03
 
 Get a
 "hello, world"
@@ -159,7 +158,7 @@ private keys as the infamous 1111111111111111111114oLvT2.
 
 	bech32 -s 0 0x0000000000000000000000000000000000000000
 
-	bc1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq9e75rs
+	grs1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqcgz463
 
 Bech32-encode the address for Wikileaks, to add error-correcting codes:
 
@@ -195,13 +194,6 @@ utility conforms to:
 	"The '.onion' Special-Use Domain Name",
 	2015-10,
 	[RFC 7686](https://tools.ietf.org/html/rfc7686).
-
-The term
-"**Bravo Charlie Address**"
-and the motto
-"**Bravo Charlie One means money**"
-are from a
-[proposal by this author](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-December/015477.html).
 
 # AUTHORS
 
@@ -254,4 +246,4 @@ High on the author
 At this time, aside from a few simple checks, the utility will happily
 pass the buck to the Bech32 reference functions.
 
-Bitcoin - December 31, 2017
+Groestlcoin - December 31, 2017
